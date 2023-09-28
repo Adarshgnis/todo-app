@@ -40,9 +40,17 @@ const Page = () => {
 
   return (
     <div>
-      <h1 className="bg-black text-white p-5 text-2xl font-bold text-center">
-        My To-Do List
-      </h1>
+      <header className="flex items-center justify-center gap-72">
+        <h1 className="bg-black text-white p-5 text-2xl font-bold text-center">
+          My To-Do List
+        </h1>
+        <button
+          onClick={resetTasks}
+          className="  bg-red-500 text-white px-4 py-2 rounded font-bold"
+        >
+          Reset
+        </button>
+      </header>
       <div className="p-8 bg-slate-300">
         <div className="flex justify-center items-center">
           <input
@@ -88,7 +96,9 @@ const Page = () => {
         </ul>
         {completedTasks.length > 0 && (
           <div>
-            <h2 className="text-green-700 text-lg font-semibold">Completed Tasks</h2>
+            <h2 className="text-green-700 text-lg font-semibold">
+              Completed Tasks
+            </h2>
             <ul>
               {completedTasks.map((item, index) => (
                 <li key={index} className="mb-3 w-2/3">
@@ -99,12 +109,6 @@ const Page = () => {
           </div>
         )}
       </div>
-      <button
-        onClick={resetTasks}
-        className="absolute top-0 right-0 mt-2 mr-2 bg-red-500 text-white px-4 py-2 rounded font-bold"
-      >
-        Reset
-      </button>
     </div>
   );
 };
